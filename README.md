@@ -33,5 +33,39 @@ http://localhost:8080/swagger-ui.html
 
 > Book Show POST /book, use movieId, theaterId, name, phoneNumber, seats[comma seperated string], show[morning, noon, night]
 	
+## Database
 
+```
+CREATE TABLE theaters 
+(
+	theaterid INT unsigned NOT NULL AUTO_INCREMENT,
+    theatername VARCHAR(200) NOT NULL,
+	city VARCHAR(200) NOT NULL,
+    primary key(theaterid)
+);
+
+CREATE TABLE movies 
+(
+    movieid INT unsigned NOT NULL AUTO_INCREMENT,
+    theaterid INT NOT NULL,
+    moviename VARCHAR(200) NOT NULL,
+    city VARCHAR(200) NOT NULL,
+    morningshow VARCHAR(200) NOT NULL,
+    noonshow VARCHAR(200) NOT NULL,
+    nightshow VARCHAR(200) NOT NULL,
+    primary key(movieid)
+);
+
+CREATE TABLE bookings 
+(
+    bookingid INT unsigned NOT NULL AUTO_INCREMENT,
+    theaterid INT NOT NULL,
+    movieid INT NOT NULL,
+    name VARCHAR(200) NOT NULL,
+    phonenumber VARCHAR(200) NOT NULL,
+    seats VARCHAR(200) NOT NULL,
+    showtime VARCHAR(200) NOT NULL,
+    primary key(bookingid)
+);
+```
 
